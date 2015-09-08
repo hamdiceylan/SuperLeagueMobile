@@ -67,7 +67,28 @@ $http.get('http://api.webron.social/TFF/GetActualList').
   });
 })
 
+.controller('liveScoreCtrl', function($scope, $stateParams,$http) {
+  $http.get('http://api.webron.social/TFF/LiveScore/0').
+  then(function(response) { 
+    console.log(response.data);
+      $scope.matches = response.data;
+    // this callback will be called asynchronously
+    // when the response is available
+  }, function(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+})
 
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('FixtureCtrl', function($scope, $stateParams, $http) {
+  $http.get('http://api.webron.social/TFF/GetFixture/3').
+  then(function(response) { 
+    console.log(response.data);
+      $scope.matches = response.data;
+    // this callback will be called asynchronously
+    // when the response is available
+  }, function(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
 });

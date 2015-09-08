@@ -46,7 +46,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/liveScore',
       views: {
         'menuContent': {
-          templateUrl: 'templates/search.html'
+          templateUrl: 'templates/liveScore.html',
+          controller : 'liveScoreCtrl'
+        }
+      }
+    })
+    .state('app.about', {
+      url: '/about',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/about.html'
         }
       }
     })
@@ -54,8 +63,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/fixture',
       views: {
         'menuContent': {
-          templateUrl: 'templates/search.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/fixture.html',
+          controller: 'FixtureCtrl'
         }
       }
     })
