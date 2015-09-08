@@ -1,0 +1,16 @@
+<ion-view view-title="Gol Krallığı">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="scorer in scorerList">
+        {{scorer.Name}}
+		<br>
+        <span style="font-size:8pt;">{{scorer.Team}}</span>
+    <span class="item-note">
+      {{scorer.Score}}
+    </span>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
