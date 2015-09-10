@@ -44,51 +44,31 @@ angular.module('starter.controllers', [])
 .controller('ScorerCtrl', function($scope,$http) {
 $http.get('http://api.webron.social/TFF/GetScorers').
   then(function(response) { 
-    console.log(response.data);
       $scope.scorerList = response.data;
-    // this callback will be called asynchronously
-    // when the response is available
   }, function(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
   });
 })
 
 .controller('PointTableCtrl', function($scope,$http) {
 $http.get('http://api.webron.social/TFF/GetActualList').
   then(function(response) { 
-    console.log(response.data);
       $scope.teams = response.data;
-    // this callback will be called asynchronously
-    // when the response is available
   }, function(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
   });
 })
 
 .controller('liveScoreCtrl', function($scope, $stateParams,$http) {
   $http.get('http://api.webron.social/TFF/LiveScore/0').
   then(function(response) { 
-    console.log(response.data);
       $scope.matches = response.data;
-    // this callback will be called asynchronously
-    // when the response is available
   }, function(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
   });
 })
 
 .controller('FixtureCtrl', function($scope, $stateParams, $http) {
   $http.get('http://api.webron.social/TFF/GetFixture/3').
   then(function(response) { 
-    console.log(response.data);
       $scope.matches = response.data;
-    // this callback will be called asynchronously
-    // when the response is available
   }, function(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
   });
 });

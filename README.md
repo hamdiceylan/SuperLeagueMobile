@@ -13,3 +13,7 @@ This application created to compare native apps to ionic framework hybrid apps.
 Write Unit Tests
 
 Add as an applications to market
+
+Hamdi Ceylan
+hamdiceylan@gmail.com
+www.hamdiceylan.com
