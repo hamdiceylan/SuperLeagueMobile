@@ -1,11 +1,47 @@
 <ion-view view-title="Puan Durumu">
   <ion-content>
     <ion-list>
+          <div class="row"  style="font-size:9px;">
+          <div class="col col-50">
+            Takımlar
+          </div>
+          <div class="col">
+            O
+          </div>
+          <div class="col">
+            G
+          </div>
+          <div class="col">
+            B
+          </div>
+          <div class="col">
+            M
+          </div>
+          <div class="col">
+            P
+          </div>
+        </div>
       <ion-item ng-repeat="team in teams">
-        {{team.Name}}
-    <span class="item-note">
-      {{team.Point}}
-    </span>
+      <div class="row"  item-height="30px"  style="font-size:9px;">
+          <div class="col col-50">
+            {{ team.Name | limitTo : 21}}
+          </div>
+          <div class="col">
+            {{team.Point}}
+          </div>
+          <div class="col">
+            {{team.Lost}}
+          </div>
+          <div class="col">
+            {{team.Draw}}
+          </div>
+          <div class="col">
+            {{team.Win}}
+          </div>
+          <div class="col">
+            {{team.Game}}
+          </div>
+        </div>
         </ion-item>
     </ion-list>
   </ion-content>
