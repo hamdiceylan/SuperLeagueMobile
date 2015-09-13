@@ -1,4 +1,4 @@
-<ion-view view-title="3. Hafta">
+<ion-view view-title="Canlı Sonuçlar">
   <ion-content>
      <ion-refresher
     pulling-text="Yenilemek için kaydırın"
@@ -8,14 +8,18 @@
       <ion-item ng-repeat="match in matches" style="padding:1px;">
       <div class="row" style="font-size:10px;">
     <div class="row">
-      <div class="col col-40">{{match.HomeTeam | limitTo : 19}}</div>
-      <div class="col col-20" style="align:center;">{{match.HomeScore}} - {{match.DisplacementScore}}
+    	<div class="col col-10" style="align:center;">{{match.Minute}}
       </div>
-        <div class="col col-40">{{match.DisplacementTeam | limitTo : 19}}</div>
+      <div class="col col-35">{{match.HomeTeam | limitTo : 19}}</div>
+      <div class="col col-20" style="align:center;">{{match.Score}}
+      </div>
+        <div class="col col-35">{{match.DisplacementTeam | limitTo : 19}}</div>
        </div>
         </div>
         </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
+
+
 

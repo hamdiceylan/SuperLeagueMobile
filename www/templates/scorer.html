@@ -1,5 +1,9 @@
 <ion-view view-title="Gol Krallığı">
   <ion-content>
+    <ion-refresher
+    pulling-text="Yenilemek için kaydırın"
+    on-refresh="doRefresh()">
+  </ion-refresher>
     <ion-list>
       <ion-item ng-repeat="scorer in scorerList">
         {{scorer.Name}}

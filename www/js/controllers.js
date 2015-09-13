@@ -41,34 +41,96 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ScorerCtrl', function($scope,$http) {
+.controller('ScorerCtrl', function($scope,$http,$ionicLoading) {
 $http.get('http://api.webron.social/TFF/GetScorers').
   then(function(response) { 
       $scope.scorerList = response.data;
   }, function(response) {
   });
-})
 
-.controller('PointTableCtrl', function($scope,$http) {
-$http.get('http://api.webron.social/TFF/GetActualList').
+  $scope.doRefresh = function() {
+  $http.get('http://api.webron.social/TFF/GetScorers').
   then(function(response) { 
-      $scope.teams = response.data;
+      $scope.scorerList = response.data;
   }, function(response) {
-  });
+  })
+   .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
+
 })
 
-.controller('liveScoreCtrl', function($scope, $stateParams,$http) {
-  $http.get('http://api.webron.social/TFF/LiveScore/0').
+.controller('PointTableCtrl', function($scope,$http,$ionicLoading) {
+    $ionicLoading.show({
+      template: 'loading'
+    });
+        
+    $http.get('http://api.webron.social/TFF/GetActualList').
+      then(function(response) { 
+        $ionicLoading.hide();
+        $scope.teams = response.data;
+      }, function(response) {
+    });
+
+        $scope.doRefresh = function() {
+        $http.get('http://api.webron.social/TFF/GetActualList').
+          then(function(response) { 
+          $scope.teams = response.data;
+          }, function(response) {
+          })
+          .finally(function() {
+          // Stop the ion-refresher from spinning
+          $scope.$broadcast('scroll.refreshComplete');
+     }); 
+  };
+})
+
+.controller('CanliCtrl', function($scope, $stateParams,$http,$ionicLoading) {
+  $ionicLoading.show({
+      template: 'loading'
+    });
+  $http.get('http://api.webron.social/TFF/LiveScore/1').
   then(function(response) { 
+      $ionicLoading.hide();
       $scope.matches = response.data;
   }, function(response) {
   });
-})
 
-.controller('FixtureCtrl', function($scope, $stateParams, $http) {
-  $http.get('http://api.webron.social/TFF/GetFixture/3').
+    $scope.doRefresh = function() {
+  $http.get('http://api.webron.social/TFF/LiveScore/1').
   then(function(response) { 
       $scope.matches = response.data;
   }, function(response) {
+  })
+   .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
+})
+
+.controller('FixtureCtrl', function($scope, $stateParams, $http,$ionicLoading) {
+  $ionicLoading.show({
+      template: 'loading'
+    });
+  $http.get('http://api.webron.social/TFF/GetFixture/4').
+  then(function(response) { 
+      $ionicLoading.hide();
+      $scope.matches = response.data;
+  }, function(response) {
   });
+
+    $scope.doRefresh = function() {
+  $http.get('http://api.webron.social/TFF/GetFixture/4').
+  then(function(response) { 
+      $scope.matches = response.data;
+  }, function(response) {
+  })
+   .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
 });

@@ -1,7 +1,33 @@
+<div class="list">
+<div ng-repeat="team in teams">
+   <div class="col col-50">
+        {{ team.Name | limitTo : 21}}
+   </div>
+   <div class="col">
+        {{team.Point}}
+   </div>
+   <div class="col">
+        {{team.Lost}}
+   </div>
+   <div class="col">
+        {{team.Draw}}
+   </div>
+   <div class="col">
+        {{team.Win}}
+   </div>
+   <div class="col">
+        {{team.Game}}
+   </div>
+</div>  
+</div>
 <ion-view view-title="Puan Durumu">
   <ion-content>
+     <ion-refresher
+    pulling-text="Yenilemek için kaydırın"
+    on-refresh="doRefresh()">
+  </ion-refresher>
     <ion-list>
-          <div class="row"  style="font-size:9px;">
+          <div class="row"  style="font-size:12px;">
           <div class="col col-50">
             Takımlar
           </div>
@@ -21,8 +47,8 @@
             P
           </div>
         </div>
-      <ion-item ng-repeat="team in teams">
-      <div class="row"  item-height="30px"  style="font-size:9px;">
+      <ion-item ng-repeat="team in teams" style="padding:1px;">
+      <div class="row" style="font-size:10px;">
           <div class="col col-50">
             {{ team.Name | limitTo : 21}}
           </div>

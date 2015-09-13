@@ -42,12 +42,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.liveScore', {
-      url: '/liveScore',
+  .state('app.canli', {
+      url: '/canli',
       views: {
         'menuContent': {
-          templateUrl: 'templates/liveScore.html',
-          controller : 'liveScoreCtrl'
+          templateUrl: 'templates/canli.html',
+          controller : 'CanliCtrl'
         }
       }
     })

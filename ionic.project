@@ -1,8 +1,12 @@
 {
   "name": "SuperLeagueMobile",
-  "app_id": "db40b604",
+  "app_id": "e6996f23",
   "gulpStartupTasks": [
     "sass",
     "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
   ]
 }
