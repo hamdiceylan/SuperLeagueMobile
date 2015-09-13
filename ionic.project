@@ -1,6 +1,6 @@
 {
   "name": "SuperLeagueMobile",
-  "app_id": "e6996f23",
+  "app_id": "67b20315",
   "gulpStartupTasks": [
     "sass",
     "watch"
